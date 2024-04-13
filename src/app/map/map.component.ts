@@ -14,19 +14,22 @@ import { OSM } from 'ol/source';
 export default class MapComponent {
   map!: Map;
 
+  constructor() {}
+
   ngOnInit() {
     this.map = new Map({
+      target: 'map',
+      view: new View({
+        projection: 'EPSG:4326',
+        center: [0, 0],
+        zoom: 2,
+        maxZoom: 18,
+      }),
       layers: [
         new TileLayer({
           source: new OSM(),
         }),
       ],
-      target: 'map',
-      view: new View({
-        center: [0, 0],
-        zoom: 2,
-        maxZoom: 18,
-      }),
     });
   }
 }

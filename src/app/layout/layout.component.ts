@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { HeaderComponent } from './ui/header/header.component';
-import { FooterComponent } from './ui/footer/footer.component';
 import { RouterOutlet } from '@angular/router';
+import { SidebarComponent } from './ui/sidebar/sidebar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, RouterOutlet],
+  imports: [MatSidenavModule, SidebarComponent, RouterOutlet],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
