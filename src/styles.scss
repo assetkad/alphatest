@@ -7,3 +7,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --mdc-icon-button-state-layer-size: 40px;
   padding: 6px;
 }
+
+.mat-mdc-icon-button .mat-mdc-button-persistent-ripple {
+  border-radius: unset !important;
+}
+
+.mat-mdc-tooltip .mdc-tooltip__surface {
+  color: #52597A !important;
+  background-color: #99D4FF !important;
+}
