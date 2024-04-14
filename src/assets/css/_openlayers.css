@@ -5,12 +5,14 @@
   padding: unset !important;
 }
 
-/* .ol-zoom {
+div.ol-zoom.ol-control {
+  top: unset !important;
+  left: unset !important;
   bottom: 5.5em !important;
   right: 0.5em !important;
-} */
+}
 
-button {
+.ol-zoom button {
     font-size: 24px !important;
     font-weight: 500 !important;
     border-radius: 100% !important;

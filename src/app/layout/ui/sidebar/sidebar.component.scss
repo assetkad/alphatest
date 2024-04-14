@@ -1,0 +1,17 @@
+.logo {
+  display: block;
+  margin: 0 auto;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.menu-items {
+  height: calc(100% - 104px);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 32px;
+}
+
+.bottom {
+  margin-top: auto;
+}
