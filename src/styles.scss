@@ -16,3 +16,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #52597A !important;
   background-color: #99D4FF !important;
 }
+
+.as-horizontal > .as-split-area {
+  position: relative;
+}

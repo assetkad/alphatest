@@ -1,34 +1,24 @@
-<ng-container>
-  <mat-sidenav-container autosize>
-    <mat-sidenav #sidenav1 mode="side" role="navigation" position="start" opened>
-      <div class="content-sidenav">
-        <app-sidebar (toggleEvent)="sidenav2.toggle()"></app-sidebar>
-      </div>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <mat-sidenav-container autosize >
-        <mat-sidenav
-          #sidenav2
-          mode="side"
-          position="start"
-          role="navigation"
-        >
-        <div style="width: 37vw;">
-          <button
-            (click)="sidenav2.toggle()"
-            mat-button
-          >
-            <i class="material-icons">reorder</i>
-          </button>
-        </div>
-        </mat-sidenav>
+<as-split [useTransition]="true" unit="pixel" [gutterSize]="5">
+  <as-split-area class="hide-gutter"
+    [size]="40" [minSize]="40" [maxSize]="40" [order]="1" [visible]="true">
+    <div class="content-sidenav">
+      <app-sidebar (toggleEvent)="sidenav2.toggle()"></app-sidebar>
+    </div>
+  </as-split-area>
 
-        <mat-sidenav-content>
-          <div class="content-container">
-            <router-outlet></router-outlet>
-          </div>
-        </mat-sidenav-content>
-      </mat-sidenav-container>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</ng-container>
+  <as-split-area
+    [size]="345" [minSize]="300" [maxSize]="800" [order]="2" [visible]="sidenav2.opened">
+    <mat-sidenav #sidenav2 mode="side" position="start" role="navigation">
+      <button (click)="sidenav2.toggle()" mat-button>
+        <i class="material-icons">reorder</i>
+      </button>
+    </mat-sidenav>
+  </as-split-area>
+  
+  <as-split-area
+    [size]="'*'" [order]="3" [visible]="true">
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </as-split-area>
+</as-split>

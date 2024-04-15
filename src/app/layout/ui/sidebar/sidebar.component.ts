@@ -15,8 +15,8 @@ import {
 import { CommonModule } from '@angular/common';
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
-  showDelay: 10,
-  hideDelay: 50000000,
+  showDelay: 0,
+  hideDelay: 500,
   touchendHideDelay: 1000,
 };
 

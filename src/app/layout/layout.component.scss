@@ -12,3 +12,7 @@ mat-sidenav {
   min-height: 100vh;
   box-sizing: border-box;
 }
+
+:host ::ng-deep .as-split-gutter:first-of-type {
+    display: none !important;
+}
