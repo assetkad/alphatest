@@ -1,25 +1,21 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  Renderer2,
   ViewChild,
-  ViewContainerRef,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './ui/sidebar/sidebar.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSidenavModule, MatSidenav } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ResizableModule } from 'angular-resizable-element';
 import { AngularSplitModule } from 'angular-split';
+import { PersonalComponent } from '../personal/personal.component';
+import { TechniqueComponent } from '../technique/technique.component';
 
 @Component({
   standalone: true,
@@ -35,22 +31,11 @@ import { AngularSplitModule } from 'angular-split';
     RouterOutlet,
     ResizableModule,
     AngularSplitModule,
+    PersonalComponent,
+    TechniqueComponent,
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class LayoutComponent {
-  @ViewChild('sidenav2', { read: ViewContainerRef })
-  sidenav2!: ViewContainerRef;
-
-  options: FormGroup;
-
-  constructor(fb: FormBuilder) {
-    this.options = fb.group({
-      bottom: 0,
-      fixed: false,
-      top: 0,
-    });
-  }
-}
+export default class LayoutComponent {}

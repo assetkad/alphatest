@@ -2,21 +2,32 @@
   <as-split-area class="hide-gutter"
     [size]="40" [minSize]="40" [maxSize]="40" [order]="1" [visible]="true">
     <div class="content-sidenav">
-      <app-sidebar (toggleEvent)="sidenav2.toggle()"></app-sidebar>
+      <app-sidebar (personalEvent)="personal.toggle(); technique.close()" (techniqueEvent)="technique.toggle(); personal.close()"></app-sidebar>
     </div>
   </as-split-area>
 
-  <as-split-area
-    [size]="345" [minSize]="300" [maxSize]="800" [order]="2" [visible]="sidenav2.opened">
-    <mat-sidenav #sidenav2 mode="side" position="start" role="navigation">
-      <button (click)="sidenav2.toggle()" mat-button>
-        <i class="material-icons">reorder</i>
+  <as-split-area 
+    [size]="495" [minSize]="300" [maxSize]="800" [order]="2" [visible]="technique.opened">
+    <mat-sidenav #technique mode="side" position="start" role="navigation">
+      <button (click)="technique.toggle(); personal.close()" mat-button>
+        <i class="material-icons">close</i>
       </button>
+      <app-technique></app-technique>
+    </mat-sidenav>
+  </as-split-area>
+
+  <as-split-area
+    [size]="495" [minSize]="300" [maxSize]="800" [order]="3" [visible]="personal.opened">
+    <mat-sidenav #personal mode="side" position="start" role="navigation">
+      <button (click)="personal.toggle(); technique.close()" mat-button>
+        <i class="material-icons">close</i>
+      </button>
+      <app-personal></app-personal>
     </mat-sidenav>
   </as-split-area>
   
   <as-split-area
-    [size]="'*'" [order]="3" [visible]="true">
+    [size]="'*'" [order]="4" [visible]="true">
     <div class="content-container">
       <router-outlet></router-outlet>
     </div>

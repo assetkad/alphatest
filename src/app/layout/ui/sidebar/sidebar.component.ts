@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Input,
   Output,
 } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -38,9 +39,6 @@ export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   ],
 })
 export class SidebarComponent {
-  @Output() toggleEvent = new EventEmitter();
-
-  toggle() {
-    this.toggleEvent.emit();
-  }
+  @Output() techniqueEvent = new EventEmitter();
+  @Output() personalEvent = new EventEmitter();
 }
