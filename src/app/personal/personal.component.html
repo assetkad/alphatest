@@ -1,1 +1,18 @@
-<p>personal works!</p>
+<header>
+  <div class="header-text">
+    <div>Персонал</div>
+    <div>{{personalCount}}</div>
+  </div>
+
+  <div class="header-items">
+    <button mat-button>
+      <i class="material-icons">search</i>
+    </button>
+    <button mat-button>
+      <i class="material-icons">download</i>
+    </button>
+    <button (click)="tabCloseEvent.emit()" mat-button>
+      <i class="material-icons">close</i>
+    </button>
+  </div>
+</header>

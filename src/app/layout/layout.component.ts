@@ -1,16 +1,9 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './ui/sidebar/sidebar.component';
-import { MatSidenavModule, MatSidenav } from '@angular/material/sidenav';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ResizableModule } from 'angular-resizable-element';
 import { AngularSplitModule } from 'angular-split';
@@ -22,11 +15,8 @@ import { TechniqueComponent } from '../technique/technique.component';
   imports: [
     CommonModule,
     MatSidenavModule,
-    MatCheckboxModule,
     MatButtonModule,
     MatIconModule,
-    ReactiveFormsModule,
-    FormsModule,
     SidebarComponent,
     RouterOutlet,
     ResizableModule,
@@ -38,4 +28,18 @@ import { TechniqueComponent } from '../technique/technique.component';
   styleUrl: './layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class LayoutComponent {}
+export default class LayoutComponent {
+  @ViewChild(SidebarComponent) sidebarComponent!: SidebarComponent;
+
+  closeTechnique() {
+    this.sidebarComponent.resetButtonStyle(
+      this.sidebarComponent.techniqueButton
+    );
+  }
+
+  closePersonal() {
+    this.sidebarComponent.resetButtonStyle(
+      this.sidebarComponent.personalButton
+    );
+  }
+}

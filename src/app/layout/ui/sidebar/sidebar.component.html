@@ -3,15 +3,17 @@
 <div class="menu-items">
   <div class="horizonts">
     <button 
+    #technique
     matTooltip="Техника"
     [matTooltipPosition]="'right'"
-    (click)="techniqueEvent.emit()" mat-icon-button class="custom-icon-button">
+    (click)="selectTechnique()" mat-icon-button class="custom-icon-button">
       <img src="../../../../assets/icons/Machinery.svg" alt="">
     </button>
     <button
+    #personal
     matTooltip="Персонал"
     [matTooltipPosition]="'right'"
-    (click)="personalEvent.emit()" mat-icon-button class="custom-icon-button">
+    (click)="selectPersonal()" mat-icon-button class="custom-icon-button">
       <img src="../../../../assets/icons/Staff.svg" alt="">
     </button>
   </div>

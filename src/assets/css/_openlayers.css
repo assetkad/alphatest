@@ -27,7 +27,3 @@ div.ol-zoom.ol-control {
         background-color: white !important;
     }
 }
-
-button:focus {
-    background-color: white !important;
-}
