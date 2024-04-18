@@ -8,17 +8,23 @@
 
   <as-split-area 
   class="content-secondsidenav"
-    [size]="550" [minSize]="400" [maxSize]="800" [order]="2" [visible]="technique.opened">
+    [size]="650" [minSize]="500" [maxSize]="900" [order]="2" [visible]="technique.opened">
     <mat-sidenav #technique mode="side" position="start" role="navigation" (closedStart)="closeTechnique()">
-      <app-technique (tabCloseEvent)="technique.toggle(); personal.close()"></app-technique>
+      <ng-container>
+        <app-technique
+        [data]="techniqueData$ | async" 
+        (tabCloseEvent)="technique.toggle(); personal.close()"></app-technique>
+      </ng-container>
     </mat-sidenav>
   </as-split-area>
 
   <as-split-area
   class="content-secondsidenav"
-    [size]="550" [minSize]="400" [maxSize]="800" [order]="3" [visible]="personal.opened">
+    [size]="650" [minSize]="500" [maxSize]="900" [order]="3" [visible]="personal.opened">
     <mat-sidenav #personal mode="side" position="start" role="navigation" (closedStart)="closePersonal()">
-      <app-personal (tabCloseEvent)="personal.toggle(); technique.close()"></app-personal>
+      <app-personal
+      [data]="personalData$ | async" 
+      (tabCloseEvent)="personal.toggle(); technique.close()"></app-personal>
     </mat-sidenav>
   </as-split-area>
   

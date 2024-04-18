@@ -1,7 +1,7 @@
 <header>
   <div class="header-text">
     <div>Персонал</div>
-    <div>{{personalCount}}</div>
+    <div>{{data?.length}}</div>
   </div>
 
   <div class="header-items">
@@ -16,3 +16,67 @@
     </button>
   </div>
 </header>
+
+<ng-container 
+*ngIf="data">
+<table mat-table [dataSource]="data" matSort matSortActive="posteddate" matSortDirection="asc" class="table-responsive">
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox
+        (change)="$event && !selection.selected.length ? masterToggle() : selection.clear() && null"
+        [checked]="selection.hasValue() || isAllSelected()"
+        [indeterminate]="selection.hasValue() && !isAllSelected()"
+      >
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox
+        (click)="$event.stopPropagation()"
+        (change)="$event ? selection.toggle(row) : null"
+        [checked]="selection.isSelected(row)"
+      >
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="batteryIcon">
+    <th mat-header-cell *matHeaderCellDef>
+      <img src="../../assets/icons/battery.svg" alt="">
+    </th>
+    <td mat-cell *matCellDef="let element">
+    <img src="../../assets/icons/{{element.batteryIcon}}.svg" alt=""></td>
+  </ng-container>
+
+  <ng-container matColumnDef="tabNumber">
+    <th mat-header-cell *matHeaderCellDef>Таб. №</th>
+    <td mat-cell *matCellDef="let element">{{element.tabNumber}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>ФИО</th>
+    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="output">
+    <th mat-header-cell *matHeaderCellDef>Выработка</th>
+    <td mat-cell *matCellDef="let element">{{element.output}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="strongestNode">
+    <th mat-header-cell *matHeaderCellDef>Сильнейший узел</th>
+    <td mat-cell *matCellDef="let element">{{element.strongestNode}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="timestamp">
+    <th mat-header-cell *matHeaderCellDef>Временная метка</th>
+    <td mat-cell *matCellDef="let element">{{element.timestamp}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumns;"
+    (click)="selection.toggle(row)"
+  ></tr>
+</table>
+</ng-container>

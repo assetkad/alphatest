@@ -4,7 +4,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 16px;
 }
 
 .header-text {
@@ -13,4 +12,13 @@ header {
   align-items: center;
   font-weight: 500;
   font-size: 16px;
+  padding-left: 16px;
+}
+
+table {
+  width: 100%;
+}
+
+.mdc-data-table__cell, .mdc-data-table__header-cell {
+  padding: 0 1% 0 1%;
 }
